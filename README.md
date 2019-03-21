@@ -175,7 +175,7 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
 
 *   sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
-
+```        
        <VirtualHost *:80>
         ServerName ec2-13-232-197-59.ap-south-1.compute.amazonaws.com (HOST NAME)
         ServerAdmin anshul_sachdeva@yahoo.com
@@ -188,9 +188,8 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
         ErrorLog ${APACHE_LOG_DIR}/error.log
         LogLevel warn
         CustomLog ${APACHE_LOG_DIR}/access.log combined
-        </VirtualHost>
-
-
+        </VirtualHost>    
+```
 
 *   Enable the virtual host
     sudo a2ensite FlaskApp
