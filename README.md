@@ -175,26 +175,22 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
 
     sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
-    ```
 
-   <VirtualHost *:80>
-    ServerName ec2-13-232-197-59.ap-south-1.compute.amazonaws.com (HOST NAME)
-    ServerAdmin anshul_sachdeva@yahoo.com
-    ServerAlias 13.232.197.59
-    WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
-    <Directory /var/www/FlaskApp/ItemCatalog/>
-        Order allow,deny
-        Allow from all
-    </Directory>
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    LogLevel warn
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-    </VirtualHost>
-
+       <VirtualHost *:80>
+        ServerName ec2-13-232-197-59.ap-south-1.compute.amazonaws.com (HOST NAME)
+        ServerAdmin anshul_sachdeva@yahoo.com
+        ServerAlias 13.232.197.59
+        WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+        <Directory /var/www/FlaskApp/ItemCatalog/>
+            Order allow,deny
+            Allow from all
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        LogLevel warn
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        </VirtualHost>
 
 
-
-    ```
 
     * Enable the virtual host
      sudo a2ensite FlaskApp
@@ -208,24 +204,18 @@ Add the following lines of code to the flaskapp.wsgi file
 
 #!/usr/bin/python
 
-    ```
 
+        import sys
+        import logging
+        logging.basicConfig(stream=sys.stderr)
+        sys.path.insert(0,"/var/www/FlaskApp/")
 
-    import sys
-    import logging
-    logging.basicConfig(stream=sys.stderr)
-    sys.path.insert(0,"/var/www/FlaskApp/")
+        from ItemCatalog import app as application
+        application.secret_key = 'My secret key'
 
-    from ItemCatalog import app as application
-    application.secret_key = 'My secret key'
+        #### Restart Apache
+        `sudo service apache2 restart`
 
-    #### Restart Apache
-    `sudo service apache2 restart`
-
-
-
-
-    ```
 
 
 #### 10.  Add tables and insert data in respective tables 
