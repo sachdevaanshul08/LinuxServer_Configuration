@@ -176,19 +176,19 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
 *   sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 ```        
-       <VirtualHost *:80>
-        ServerName ec2-13-232-197-59.ap-south-1.compute.amazonaws.com (HOST NAME)
-        ServerAdmin anshul_sachdeva@yahoo.com
-        ServerAlias 13.232.197.59
-        WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
-        <Directory /var/www/FlaskApp/ItemCatalog/>
-            Order allow,deny
-            Allow from all
-        </Directory>
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        LogLevel warn
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-        </VirtualHost>    
+<VirtualHost *:80>
+ServerName ec2-13-232-197-59.ap-south-1.compute.amazonaws.com (HOST NAME)
+ServerAdmin anshul_sachdeva@yahoo.com
+ServerAlias 13.232.197.59
+WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+<Directory /var/www/FlaskApp/ItemCatalog/>
+    Order allow,deny
+     Allow from all
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/error.log
+LogLevel warn
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>    
 ```
 
 *   Enable the virtual host
