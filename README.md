@@ -173,7 +173,7 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
 
 #### 9. Configure Apache to server mod_wsgi app and Enable the FlaskApp
 
-    sudo nano /etc/apache2/sites-available/FlaskApp.conf
+*   sudo nano /etc/apache2/sites-available/FlaskApp.conf
 
 
        <VirtualHost *:80>
@@ -192,8 +192,8 @@ CLIENT_ID = json.loads(open(r’/var/www/FlaskApp/ItemCatalog/client_secrets.jso
 
 
 
-    * Enable the virtual host
-     sudo a2ensite FlaskApp
+*   Enable the virtual host
+    sudo a2ensite FlaskApp
 
 #### Create the .wsgi File
 
